@@ -1,0 +1,26 @@
+name: Build C Program
+
+on:
+  push:
+    branches:
+      - main  # 在 main 分支上有提交时触发
+  pull_request:
+    branches:
+      - main  # 在 pull request 向 main 分支提交时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 在 Ubuntu 系统上运行
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # 检出仓库的代码
+
+      - name: Install GCC
+        run: sudo apt-get install -y gcc  # 安装 GCC 编译器
+
+      - name: Compile C program
+        run: gcc src/de.c -o bruns_decrypt  # 编译 src/de.c 文件，生成 de_program 可执行文件
+
+      - name: Run the program
+        run: ./bruns_decrypt  # 运行编译后的程序
