@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get install -y gcc  # 安装 GCC 编译器
 
       - name: Compile C program
-        run: gcc src/de.c -o bruns_decrypt  # 编译 src/de.c 文件，生成 de_program 可执行文件
+        run: gcc src/bruns_decrypt.c -o bruns_decrypt  # 编译 src/de.c 文件，生成 de_program 可执行文件
 
       - name: Run the program
         run: ./bruns_decrypt  # 运行编译后的程序
